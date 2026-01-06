@@ -7,10 +7,8 @@ import {
 } from 'lucide-react'
 import ScrollReveal from '../components/ScrollReveal'
 import AnimatedCounter from '../components/AnimatedCounter'
-import { useLanguage } from '../context/LanguageContext'
 
 const Home = () => {
-  const { t } = useLanguage()
 
   const services = [
     { icon: Code2, title: 'Full-Stack Development', desc: 'Custom web apps built with cutting-edge tech' },
@@ -98,7 +96,7 @@ const Home = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact" className="btn-primary text-lg px-8 py-4">
-                  {t('getStarted')} <ArrowRight className="inline ml-2" size={20} />
+                  Get Started <ArrowRight className="inline ml-2" size={20} />
                 </Link>
                 <Link to="/portfolio" className="btn-secondary text-lg px-8 py-4">
                   View Our Work

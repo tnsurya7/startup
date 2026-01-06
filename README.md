@@ -132,7 +132,6 @@ src/
 │   ├── Navbar.tsx
 │   └── ScrollReveal.tsx
 ├── context/
-│   ├── LanguageContext.tsx
 │   └── ThemeContext.tsx
 ├── pages/
 │   ├── Home.tsx

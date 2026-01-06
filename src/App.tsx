@@ -8,27 +8,24 @@ import Contact from './pages/Contact'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import CustomCursor from './components/CustomCursor'
 import { ThemeProvider } from './context/ThemeContext'
-import { LanguageProvider } from './context/LanguageContext'
 
 function App() {
   return (
     <ThemeProvider>
-      <LanguageProvider>
-        <Router>
-          <div className="min-h-screen custom-cursor">
-            <CustomCursor />
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-            <FloatingWhatsApp />
-          </div>
-        </Router>
-      </LanguageProvider>
+      <Router>
+        <div className="min-h-screen custom-cursor">
+          <CustomCursor />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <FloatingWhatsApp />
+        </div>
+      </Router>
     </ThemeProvider>
   )
 }

@@ -56,8 +56,8 @@ Edit `src/pages/Services.tsx` - Add to the `serviceCategories` array
 ### Modify Testimonials
 Edit `src/pages/Home.tsx` - Update the `testimonials` array
 
-### Change Language Translations
-Edit `src/context/LanguageContext.tsx` - Add more translations
+### Customize Content
+Edit the content in the page files to match your business needs
 
 ## 📱 WhatsApp Integration
 

@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Sun, Moon, Globe } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
-import { useLanguage } from '../context/LanguageContext'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { theme, toggleTheme } = useTheme()
-  const { language, toggleLanguage, t } = useLanguage()
   const location = useLocation()
 
   useEffect(() => {
@@ -21,11 +19,11 @@ const Navbar = () => {
   }, [])
 
   const navLinks = [
-    { path: '/', label: t('home') },
-    { path: '/services', label: t('services') },
-    { path: '/team', label: t('team') },
-    { path: '/portfolio', label: t('portfolio') },
-    { path: '/contact', label: t('contact') },
+    { path: '/', label: 'Home' },
+    { path: '/services', label: 'Services' },
+    { path: '/team', label: 'Team' },
+    { path: '/portfolio', label: 'Portfolio' },
+    { path: '/contact', label: 'Contact' },
   ]
 
   return (
@@ -80,18 +78,9 @@ const Navbar = () => {
             >
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
-            
-            <button
-              onClick={toggleLanguage}
-              className="p-2 rounded-full glass hover:scale-110 transition-transform"
-              aria-label="Toggle language"
-            >
-              <Globe size={20} />
-              <span className="ml-1 text-xs">{language.toUpperCase()}</span>
-            </button>
 
             <Link to="/contact" className="hidden md:block btn-primary">
-              {t('bookMeeting')}
+              Book a Meeting
             </Link>
 
             {/* Mobile Menu Button */}
@@ -134,7 +123,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className="block btn-primary text-center"
                 >
-                  {t('bookMeeting')}
+                  Book a Meeting
                 </Link>
               </div>
             </motion.div>
