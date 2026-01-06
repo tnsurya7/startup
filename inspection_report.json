@@ -1,0 +1,26 @@
+{
+  "num_files": 17,
+  "file_list_sample": [
+    ".env.local",
+    ".gitignore",
+    "App.tsx",
+    "README.md",
+    "components/AddBillButtons.tsx",
+    "components/Dashboard.tsx",
+    "components/Report.tsx",
+    "components/SummaryCard.tsx",
+    "components/icons/index.tsx",
+    "index.html",
+    "index.tsx",
+    "metadata.json",
+    "package.json",
+    "services/api.ts",
+    "tsconfig.json",
+    "types.ts",
+    "vite.config.ts"
+  ],
+  "displayed": [
+    "package.json",
+    "README.md"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Transport Union Income Tracker",
+  "description": "A dashboard to track income from transport and parking bills for a transport union. It provides daily, weekly, and monthly summaries with visualizations and data export options.",
+  "requestFramePermissions": []
+}
