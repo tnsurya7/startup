@@ -17,25 +17,6 @@ const Home = () => {
     { icon: TrendingUp, title: 'Digital Marketing', desc: 'Growth-focused marketing strategies' },
   ]
 
-  const techStack = [
-    // Frontend & UI
-    'React', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'TypeScript',
-    // Backend & APIs
-    'Node.js', 'Express.js', 'Python', 'FastAPI', 'REST APIs', 'WebSockets', 'Java',
-    // Databases
-    'MySQL', 'PostgreSQL', 'MongoDB',
-    // AI / Machine Learning
-    'Pandas', 'NumPy', 'TensorFlow',
-    // AI Agents & Intelligent Automation
-    'AI Agents', 'n8n AI Automations',
-    // Cloud, Hosting & DevOps
-    'AWS', 'Vercel', 'Render', 'fly.io', 'Netlify', 'Supabase', 'Firebase', 'Railway', 'Neon', 'MongoDB Atlas', 'Aiven', 'Docker',
-    // Version Control & CI/CD
-    'GitHub', 'GitHub Actions',
-    // AI Integrations & Tools
-    'ChatGPT', 'Claude AI', 'Google AI Studio', 'Perplexity AI', 'Kiro AI', 'Blackbox AI', 'GitHub Copilot', 'DeepSeek AI', 'Lovable AI'
-  ]
-
   const whyChooseUs = [
     { icon: Zap, title: 'Lightning Fast Delivery', desc: 'We deliver quality projects on time, every time' },
     { icon: Shield, title: 'Enterprise-Grade Security', desc: 'Your data and projects are always protected' },
@@ -354,7 +335,10 @@ const Home = () => {
                       onError={(e) => {
                         // Fallback to initials if image fails to load
                         e.currentTarget.style.display = 'none';
-                        e.currentTarget.nextElementSibling.style.display = 'flex';
+                        const fallbackElement = e.currentTarget.nextElementSibling as HTMLElement;
+                        if (fallbackElement) {
+                          fallbackElement.style.display = 'flex';
+                        }
                       }}
                     />
                     <div 
