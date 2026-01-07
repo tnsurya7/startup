@@ -1,4 +1,4 @@
-# Creative Tech Studio - Agency Website
+# Web Deo - Agency Website
 
 A modern, premium agency website built with React, TypeScript, Tailwind CSS, and Framer Motion. Features smooth animations, glassmorphism design, dark mode, and multi-language support.
 
@@ -174,4 +174,4 @@ This project is proprietary and confidential.
 
 ## 🙏 Credits
 
-Built with ❤️ by Creative Tech Studio
+Built with ❤️ by Web Deo

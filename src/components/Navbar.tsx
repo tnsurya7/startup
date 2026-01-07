@@ -39,10 +39,10 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">CT</span>
+              <span className="text-white font-bold text-xl">WD</span>
             </div>
             <span className="text-xl font-bold gradient-text hidden sm:block">
-              Creative Tech Studio
+              Web Deo
             </span>
           </Link>
 

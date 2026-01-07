@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { 
   Code2, Brain, Video, TrendingUp, 
   Zap, Shield, Users, Award,
-  ArrowRight, Star
+  ArrowRight
 } from 'lucide-react'
 import ScrollReveal from '../components/ScrollReveal'
 import AnimatedCounter from '../components/AnimatedCounter'
@@ -18,29 +18,22 @@ const Home = () => {
   ]
 
   const techStack = [
-    'React', 'Node.js', 'Python', 'TypeScript', 'PostgreSQL', 'MongoDB',
-    'TensorFlow', 'AWS', 'Docker', 'Next.js', 'FastAPI', 'Tailwind CSS'
-  ]
-
-  const testimonials = [
-    {
-      name: 'Dr. Ramalingam',
-      role: 'Medical Director',
-      text: 'The hospital management system transformed our operations. Exceptional work!',
-      rating: 5
-    },
-    {
-      name: 'Priya Sharma',
-      role: 'Startup Founder',
-      text: 'Their AI chatbot increased our customer engagement by 300%. Highly recommended!',
-      rating: 5
-    },
-    {
-      name: 'Rajesh Kumar',
-      role: 'Business Owner',
-      text: 'Professional, creative, and delivered beyond expectations. True experts!',
-      rating: 5
-    }
+    // Frontend & UI
+    'React', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'TypeScript',
+    // Backend & APIs
+    'Node.js', 'Express.js', 'Python', 'FastAPI', 'REST APIs', 'WebSockets', 'Java',
+    // Databases
+    'MySQL', 'PostgreSQL', 'MongoDB',
+    // AI / Machine Learning
+    'Pandas', 'NumPy', 'TensorFlow',
+    // AI Agents & Intelligent Automation
+    'AI Agents', 'n8n AI Automations',
+    // Cloud, Hosting & DevOps
+    'AWS', 'Vercel', 'Render', 'fly.io', 'Netlify', 'Supabase', 'Firebase', 'Railway', 'Neon', 'MongoDB Atlas', 'Aiven', 'Docker',
+    // Version Control & CI/CD
+    'GitHub', 'GitHub Actions',
+    // AI Integrations & Tools
+    'ChatGPT', 'Claude AI', 'Google AI Studio', 'Perplexity AI', 'Kiro AI', 'Blackbox AI', 'GitHub Copilot', 'DeepSeek AI', 'Lovable AI'
   ]
 
   const whyChooseUs = [
@@ -86,13 +79,16 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Transform Your Vision Into
-                <span className="gradient-text"> Digital Reality</span>
+              <h1 className="font-bold mb-6 leading-tight">
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl block mb-2">
+                  Transform Your Vision Into
+                </span>
+                <span className="gradient-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl block">
+                  Digital Reality
+                </span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                Premium full-stack development, AI automation, and creative solutions 
-                that drive real business results
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Premium full-stack development, AI automation, and creative solutions that drive real business results
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact" className="btn-primary text-lg px-8 py-4">
@@ -114,7 +110,7 @@ const Home = () => {
               {[
                 { end: 100, suffix: '+', label: 'Projects Completed' },
                 { end: 50, suffix: '+', label: 'Happy Clients' },
-                { end: 15, suffix: '+', label: 'Team Members' },
+                { end: 50, suffix: '+', label: 'Team Members' },
                 { end: 99, suffix: '%', label: 'Client Satisfaction' },
               ].map((stat, i) => (
                 <div key={i} className="glass-card">
@@ -191,15 +187,17 @@ const Home = () => {
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="glass-card text-center">
+                <div className="glass-card text-center h-full flex flex-col justify-between p-6">
                   <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
                     <item.icon size={32} className="text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400">{item.desc}</p>
+                  <div className="flex-grow flex flex-col justify-center">
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-400">{item.desc}</p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
@@ -213,69 +211,163 @@ const Home = () => {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Our <span className="gradient-text">Tech Stack</span>
+                Our <span className="gradient-text">Technology Stack</span>
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-400">
-                We work with cutting-edge technologies
+              <p className="text-xl text-gray-600 dark:text-gray-400 mb-2">
+                Core technologies we rely on to build scalable, secure, and modern solutions
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-500">
+                Tools may vary by project requirements
               </p>
             </div>
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="flex flex-wrap justify-center gap-4">
-              {techStack.map((tech, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="glass px-6 py-3 rounded-full font-semibold"
-                >
-                  {tech}
-                </motion.div>
-              ))}
+            <div className="space-y-8">
+              {/* Row 1 - Core Development Stack */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Frontend & UI */}
+                <div className="h-full rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col">
+                  <h3 className="text-xl font-bold mb-4 gradient-text text-center">Frontend & UI</h3>
+                  <div className="space-y-2 text-center">
+                    {['React', 'Next.js', 'Tailwind CSS', 'TypeScript'].map((tech, i) => (
+                      <div key={i} className="text-gray-700 dark:text-gray-300 font-medium">
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Backend & APIs */}
+                <div className="h-full rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col">
+                  <h3 className="text-xl font-bold mb-4 gradient-text text-center">Backend & APIs</h3>
+                  <div className="space-y-2 text-center">
+                    {['Node.js', 'Express.js', 'Python', 'FastAPI'].map((tech, i) => (
+                      <div key={i} className="text-gray-700 dark:text-gray-300 font-medium">
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Databases */}
+                <div className="h-full rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col">
+                  <h3 className="text-xl font-bold mb-4 gradient-text text-center">Databases</h3>
+                  <div className="space-y-2 text-center">
+                    {['PostgreSQL', 'MySQL', 'MongoDB', 'SQL'].map((tech, i) => (
+                      <div key={i} className="text-gray-700 dark:text-gray-300 font-medium">
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* AI & Machine Learning */}
+                <div className="h-full rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col">
+                  <h3 className="text-xl font-bold mb-4 gradient-text text-center">AI & Machine Learning</h3>
+                  <div className="space-y-2 text-center">
+                    {['TensorFlow', 'Pandas', 'NumPy', 'Matplotlib'].map((tech, i) => (
+                      <div key={i} className="text-gray-700 dark:text-gray-300 font-medium">
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Row 2 - Automation & Infrastructure */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Automation & AI Systems */}
+                <div className="h-full rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col">
+                  <h3 className="text-xl font-bold mb-4 gradient-text text-center">Automation & AI Systems</h3>
+                  <div className="space-y-2 text-center">
+                    {['n8n', 'AI Agents', 'CRM & Sales Automations'].map((tech, i) => (
+                      <div key={i} className="text-gray-700 dark:text-gray-300 font-medium">
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Cloud & DevOps */}
+                <div className="h-full rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col">
+                  <h3 className="text-xl font-bold mb-4 gradient-text text-center">Cloud & DevOps</h3>
+                  <div className="space-y-2 text-center">
+                    {['AWS', 'Azure', 'Docker'].map((tech, i) => (
+                      <div key={i} className="text-gray-700 dark:text-gray-300 font-medium">
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* AI Tools */}
+                <div className="h-full rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col">
+                  <h3 className="text-xl font-bold mb-4 gradient-text text-center">AI Tools</h3>
+                  <div className="space-y-2 text-center">
+                    {['ChatGPT', 'Claude AI', 'GitHub Copilot'].map((tech, i) => (
+                      <div key={i} className="text-gray-700 dark:text-gray-300 font-medium">
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Trusted Clients */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Client <span className="gradient-text">Testimonials</span>
+                Trusted by <span className="gradient-text">Leading Brands</span>
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-400">
-                Don't just take our word for it
+                Proud to work with amazing clients
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="glass-card">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 italic">
-                    "{testimonial.text}"
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold mr-3">
-                      {testimonial.name[0]}
+          <ScrollReveal>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+              {[
+                { name: 'Kaviya Groups', logo: '/kaaviya-group-logo.png' },
+                { name: 'MedFoxRCM', logo: '/medfoxrcm. logo.png' },
+                { name: 'Dream Travels', logo: '/dream-travels-logo.png' },
+                { name: 'API Trichy', logo: '/api-logo.png' },
+                { name: 'RV Strategies', logo: '/rv strategies logo.png' },
+                { name: 'Dreamy Delight', logo: '/dreamy delight logo.png' }
+              ].map((client, i) => (
+                <div
+                  key={i}
+                  className="glass-card p-6 text-center hover:scale-105 transition-transform"
+                >
+                  <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                    <img 
+                      src={client.logo} 
+                      alt={client.name}
+                      className="max-w-full max-h-full object-contain"
+                      onError={(e) => {
+                        // Fallback to initials if image fails to load
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div 
+                      className="w-16 h-16 bg-gradient-primary rounded-full items-center justify-center text-white font-bold text-xl hidden"
+                    >
+                      {client.name.split(' ').map(word => word[0]).join('')}
                     </div>
-                    <div>
-                      <p className="font-bold">{testimonial.name}</p>
-                      <p className="text-sm text-gray-500">{testimonial.role}</p>
-                    </div>
                   </div>
+                  <h3 className="font-semibold text-sm">{client.name}</h3>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -299,7 +391,7 @@ const Home = () => {
                   Get Started Now
                 </Link>
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/918825606988"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary text-lg px-8 py-4"
@@ -323,11 +415,24 @@ const Home = () => {
               <p className="text-gray-600 dark:text-gray-400 mb-8">
                 Subscribe to our newsletter for the latest tech insights and updates
               </p>
-              <form className="flex flex-col sm:flex-row gap-4">
+              <form 
+                className="flex flex-col sm:flex-row gap-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const email = e.currentTarget.email.value;
+                  if (email) {
+                    const subject = 'Newsletter Subscription Request';
+                    const body = `New newsletter subscription request from: ${email}`;
+                    window.location.href = `mailto:webdeo7@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                  }
+                }}
+              >
                 <input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
                   className="flex-1 px-6 py-4 rounded-full glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
+                  required
                 />
                 <button type="submit" className="btn-primary px-8 py-4">
                   Subscribe

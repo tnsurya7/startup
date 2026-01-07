@@ -42,7 +42,7 @@ Your site will be live at: `https://your-project-name.vercel.app`
 ```bash
 git init
 git add .
-git commit -m "Initial commit - Creative Tech Studio"
+git commit -m "Initial commit - Web Deo"
 git branch -M main
 git remote add origin YOUR_GITHUB_REPO_URL
 git push -u origin main

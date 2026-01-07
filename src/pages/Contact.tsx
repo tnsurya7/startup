@@ -62,7 +62,7 @@ const Contact = () => {
     
     // Send WhatsApp message
     const message = `New Project Inquiry:\n\nName: ${formData.name}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\nService: ${formData.service}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\nMessage: ${formData.message}`
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://wa.me/918825606988?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
   }
 
@@ -191,7 +191,7 @@ const Contact = () => {
                           onChange={handleChange}
                           required
                           className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
-                          placeholder="John Doe"
+                          placeholder="Surya Kumar"
                         />
                       </div>
 
@@ -206,7 +206,7 @@ const Contact = () => {
                           onChange={handleChange}
                           required
                           className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
-                          placeholder="john@example.com"
+                          placeholder="webdeo7@gmail.com"
                         />
                       </div>
 
@@ -221,7 +221,7 @@ const Contact = () => {
                           onChange={handleChange}
                           required
                           className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
-                          placeholder="+91 98765 43210"
+                          placeholder="+91 88256 06988"
                         />
                       </div>
                     </motion.div>
@@ -374,7 +374,7 @@ const Contact = () => {
                 
                 <div className="space-y-4">
                   <a
-                    href="mailto:hello@creativetechstudio.com"
+                    href="mailto:webdeo7@gmail.com"
                     className="flex items-center p-4 glass rounded-xl hover:scale-105 transition-transform"
                   >
                     <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4">
@@ -383,13 +383,13 @@ const Contact = () => {
                     <div>
                       <p className="font-semibold">Email</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        hello@creativetechstudio.com
+                        info@webdeo
                       </p>
                     </div>
                   </a>
 
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+918825606988"
                     className="flex items-center p-4 glass rounded-xl hover:scale-105 transition-transform"
                   >
                     <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4">
@@ -398,7 +398,7 @@ const Contact = () => {
                     <div>
                       <p className="font-semibold">Phone</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        +91 98765 43210
+                        +91 88256 06988
                       </p>
                     </div>
                   </a>
@@ -410,7 +410,7 @@ const Contact = () => {
                     <div>
                       <p className="font-semibold">Location</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Bangalore, Karnataka, India
+                        Chennai, Tamil Nadu, India
                       </p>
                     </div>
                   </div>
@@ -425,7 +425,7 @@ const Contact = () => {
                 
                 <div className="space-y-4">
                   <a
-                    href="https://wa.me/919876543210"
+                    href="https://wa.me/918825606988"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-4 bg-green-500 hover:bg-green-600 text-white rounded-xl transition-colors"

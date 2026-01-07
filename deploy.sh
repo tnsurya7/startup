@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Deploying Creative Tech Studio to Vercel..."
+echo "🚀 Deploying Web Deo to Vercel..."
 echo ""
 
 # Check if vercel is installed

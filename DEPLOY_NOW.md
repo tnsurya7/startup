@@ -58,7 +58,7 @@ git init
 git add .
 
 # Commit
-git commit -m "Initial commit - Creative Tech Studio Website"
+git commit -m "Initial commit - Web Deo Website"
 
 # Create a new repository on GitHub, then:
 git remote add origin YOUR_GITHUB_REPO_URL

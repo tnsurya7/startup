@@ -1,126 +1,229 @@
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Zap } from 'lucide-react'
+import { Zap } from 'lucide-react'
+import { useState } from 'react'
 import ScrollReveal from '../components/ScrollReveal'
 
 const Portfolio = () => {
   const projects = [
     {
-      title: 'Hospital Management System',
-      client: 'Dr. Ramalingam MBBS MD',
-      description: 'Comprehensive hospital management platform with patient records, appointment scheduling, billing, inventory management, and staff coordination. Streamlined operations for a 50-bed hospital.',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop',
-      techStack: ['React', 'Node.js', 'PostgreSQL', 'Redis', 'AWS'],
+      title: 'Dream Travels',
+      description: 'Tour and travel booking website showcasing packages, destinations, and enquiry flow for customers.',
+      image: '/Dream Travel project.png',
+      techStack: ['React.js', 'Node.js'],
       features: [
-        'Patient Management System',
-        'Appointment Scheduling',
-        'Billing & Insurance',
-        'Inventory Tracking',
-        'Staff Management',
-        'Reports & Analytics'
+        'Tour package listings',
+        'Enquiry & contact forms',
+        'Responsive UI',
+        'SEO-friendly pages'
       ],
-      liveLink: 'https://hospital-demo.example.com',
-      githubLink: 'https://github.com/yourusername/hospital-management',
+      liveLink: 'https://dreamtravelz.vercel.app/',
+      githubLink: null,
+      status: 'Live',
+      category: 'Web Development'
+    },
+    {
+      title: 'MedFoxRCM – Healthcare Revenue Cycle Management',
+      description: 'Healthcare RCM platform with service presentation and course registration system.',
+      image: '/Medfoxrcm project.png',
+      techStack: ['Next.js 14', 'React 18', 'TypeScript', 'Tailwind CSS', 'Nodemailer', 'Zod', 'Vercel'],
+      features: [
+        'Medical billing & coding services',
+        'Course registration flow',
+        'Email automation',
+        'Secure SMTP integration',
+        'Responsive healthcare UI'
+      ],
+      liveLink: 'https://www.medfoxrcm.com/',
+      githubLink: '#',
       status: 'Live',
       category: 'Healthcare'
     },
     {
-      title: 'Online Petition Portal',
-      client: 'Public Service Initiative',
-      description: 'Democratic petition platform enabling citizens to create, sign, and track petitions. Deployed on Vercel with Render backend and robust database architecture.',
-      image: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&h=600&fit=crop',
-      techStack: ['Next.js', 'FastAPI', 'MongoDB', 'Vercel', 'Render'],
+      title: 'API Trichy Chapter – Official Website',
+      description: 'Official full-stack website for API Tiruchirappalli Chapter with admin management.',
+      image: '/api project.png',
+      techStack: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Prisma', 'JWT', 'Vercel'],
       features: [
-        'User Authentication',
-        'Petition Creation & Signing',
-        'Real-time Updates',
-        'Email Notifications',
-        'Admin Dashboard',
-        'Analytics & Reporting'
+        'Events & CME programs',
+        'Leadership profiles',
+        'Publications & media',
+        'Admin panel with role-based access'
       ],
-      liveLink: 'https://petition-portal.example.com',
-      githubLink: 'https://github.com/yourusername/petition-portal',
+      liveLink: 'https://www.apitrichy.com/',
+      githubLink: '#',
+      status: 'Live',
+      category: 'Professional'
+    },
+    {
+      title: 'ISC Textile Report App',
+      client: 'Indian Soft Colours',
+      description: 'Digital textile printing & production management system replacing manual registers.',
+      image: '/isc texttiles project.png',
+      techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'jsPDF', 'SheetJS', 'Next-PWA'],
+      features: [
+        'Smart record management',
+        'Analytics dashboard',
+        'PDF & Excel export',
+        'PWA with offline support',
+        'Mobile & tablet optimized'
+      ],
+      liveLink: '#',
+      githubLink: '#',
+      status: 'Live',
+      category: 'Enterprise'
+    },
+    {
+      title: 'Dreamy Delight',
+      description: 'Creative brand website with modern UI and responsive design.',
+      image: '/Dreamy delight project .png',
+      techStack: ['HTML', 'CSS', 'JavaScript', 'Netlify'],
+      features: [
+        'Product showcase',
+        'Smooth animations',
+        'Responsive layout',
+        'Branding-focused UI'
+      ],
+      liveLink: 'https://dreamy-delight.netlify.app/',
+      githubLink: null,
+      status: 'Live',
+      category: 'Creative'
+    },
+    {
+      title: 'Online Petition Management System',
+      description: 'Comprehensive petition management system deployed on Vercel & Render.',
+      image: '/online petition project.png',
+      techStack: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'JWT', 'Vercel', 'Render'],
+      features: [
+        'Secure JWT authentication',
+        'File uploads',
+        'Multilingual UI',
+        'Real-time analytics dashboard',
+        'Petition creation & management',
+        'Admin moderation panel'
+      ],
+      liveLink: 'https://online-petition-portal.vercel.app/',
+      githubLink: '#',
       status: 'Live',
       category: 'Civic Tech'
     },
     {
-      title: 'Smart Agriculture ARIMAX System',
-      client: 'Agricultural Research Institute',
-      description: 'AI-powered soil prediction system using ARIMAX model for precision agriculture. Predicts soil moisture, nutrient levels, and optimal planting times.',
-      image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop',
-      techStack: ['Python', 'TensorFlow', 'Pandas', 'Flask', 'PostgreSQL'],
+      title: 'Hospital Management System',
+      description: 'Hospital platform for managing patients, doctors, appointments, and records.',
+      image: '/hospital managemnt project .png',
+      techStack: ['React.js', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Vercel', 'Render'],
       features: [
-        'ARIMAX Prediction Model',
-        'Soil Analysis Dashboard',
-        'Weather Integration',
-        'Crop Recommendations',
-        'Historical Data Analysis',
-        'Mobile-Responsive Interface'
+        'Patient & doctor management',
+        'Appointment scheduling',
+        'Medical records',
+        'Admin dashboard',
+        'Secure authentication'
       ],
-      liveLink: 'https://agri-predict.example.com',
-      githubLink: 'https://github.com/yourusername/smart-agriculture',
+      liveLink: 'https://ramalingam-clinic.vercel.app/',
+      githubLink: '#',
       status: 'Live',
-      category: 'AI/ML'
+      category: 'Healthcare'
     },
     {
-      title: 'Cooker Whistle Detection System',
-      client: 'Smart Home Innovation',
-      description: 'IoT-based audio detection system using machine learning to identify pressure cooker whistles and send notifications. Prevents overcooking and kitchen accidents.',
-      image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&h=600&fit=crop',
-      techStack: ['Python', 'TensorFlow', 'Raspberry Pi', 'MQTT', 'React Native'],
+      title: 'AI Auto WhatsApp Reminder',
+      description: 'AI-powered WhatsApp reminder system with smart scheduling and automation.',
+      image: '/ai auto reminder project.png',
+      techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'WhatsApp API', 'AI/ML', 'FastAPI', 'JWT'],
       features: [
-        'Audio Pattern Recognition',
-        'Real-time Notifications',
-        'Mobile App Integration',
-        'Multiple Device Support',
-        'Custom Alert Settings',
-        'Usage Analytics'
+        'AI-generated login',
+        'Automated WhatsApp messaging',
+        'NLP-based scheduling',
+        'Recurring reminders',
+        'Analytics dashboard'
       ],
-      liveLink: null,
-      githubLink: 'https://github.com/yourusername/whistle-detection',
-      status: 'In Development',
-      category: 'IoT/AI'
-    },
-    {
-      title: 'E-Commerce Platform',
-      client: 'Fashion Retail Brand',
-      description: 'Full-featured e-commerce platform with inventory management, payment gateway integration, and advanced analytics.',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-      techStack: ['React', 'Node.js', 'Stripe', 'MongoDB', 'AWS S3'],
-      features: [
-        'Product Catalog',
-        'Shopping Cart',
-        'Payment Integration',
-        'Order Tracking',
-        'Admin Dashboard',
-        'Customer Reviews'
-      ],
-      liveLink: 'https://fashion-store.example.com',
-      githubLink: null,
-      status: 'Live',
-      category: 'E-Commerce'
-    },
-    {
-      title: 'AI Content Generator',
-      client: 'Marketing Agency',
-      description: 'GPT-powered content generation tool for social media posts, blog articles, and marketing copy. Saves 10+ hours per week.',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
-      techStack: ['React', 'OpenAI API', 'Node.js', 'PostgreSQL'],
-      features: [
-        'Multiple Content Types',
-        'Tone Customization',
-        'SEO Optimization',
-        'Content Calendar',
-        'Team Collaboration',
-        'Export Options'
-      ],
-      liveLink: 'https://ai-content-gen.example.com',
-      githubLink: null,
+      liveLink: '#',
+      githubLink: '#',
       status: 'Live',
       category: 'AI/SaaS'
+    },
+    {
+      title: 'CRM Automation System',
+      description: 'Custom CRM system with automation and segmented communication.',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+      techStack: ['Supabase', 'n8n', 'Node.js'],
+      features: [
+        'Lead management',
+        'Automated email workflows',
+        'Contact segmentation',
+        'Analytics dashboard'
+      ],
+      liveLink: null,
+      githubLink: '#',
+      status: 'Live',
+      category: 'Automation'
+    },
+    {
+      title: 'Weather Forecasting Automation',
+      description: 'Weather-based automation system sending alerts via email.',
+      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop',
+      techStack: ['Weather API', 'n8n', 'Node.js'],
+      features: [
+        'Weather API integration',
+        'Automated email alerts',
+        'Condition-based triggers',
+        'Scheduled workflows'
+      ],
+      liveLink: null,
+      githubLink: '#',
+      status: 'Live',
+      category: 'Automation'
+    },
+    {
+      title: 'Smart Agriculture System (ARIMAX)',
+      description: 'AI-powered irrigation & soil prediction system using ARIMAX.',
+      image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop',
+      techStack: ['Python', 'FastAPI', 'ARIMAX', 'IoT', 'React.js', 'MongoDB'],
+      features: [
+        'ARIMAX forecasting',
+        'Soil moisture prediction',
+        'Weather integration',
+        'Automated irrigation',
+        'Analytics dashboard'
+      ],
+      liveLink: '#',
+      githubLink: '#',
+      status: 'Live',
+      category: 'AI/IoT'
+    },
+    {
+      title: 'User Management System',
+      description: 'Secure user registration and profile management system.',
+      image: '/user managemnet project.png',
+      techStack: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'MySQL'],
+      features: [
+        'User registration & login',
+        'Profile CRUD',
+        'Password encryption',
+        'Session management'
+      ],
+      liveLink: '#',
+      githubLink: '#',
+      status: 'Live',
+      category: 'Web Development'
+    },
+    {
+      title: 'AI Farmer Assistant (n8n)',
+      description: 'AI-powered farmer assistant using automation workflows.',
+      image: '/AI farmer project.png',
+      techStack: ['n8n', 'AI APIs', 'Weather API'],
+      features: [
+        'Crop advisory automation',
+        'Weather-based alerts',
+        'AI chatbot responses',
+        'Workflow orchestration'
+      ],
+      liveLink: null,
+      githubLink: '#',
+      status: 'Live',
+      category: 'AI/Agriculture'
     }
   ]
 
-  const categories = ['All', 'Healthcare', 'Civic Tech', 'AI/ML', 'IoT/AI', 'E-Commerce', 'AI/SaaS']
+  const categories = ['All', 'Web Development', 'Healthcare', 'Professional', 'Enterprise', 'Creative', 'Civic Tech', 'AI/SaaS', 'Automation', 'AI/IoT', 'AI/Agriculture']
   const [selectedCategory, setSelectedCategory] = useState('All')
 
   const filteredProjects = selectedCategory === 'All' 
@@ -172,7 +275,7 @@ const Portfolio = () => {
             <ScrollReveal key={index} delay={index * 0.1}>
               <motion.div
                 whileHover={{ y: -10 }}
-                className="glass-card group overflow-hidden"
+                className="glass-card group overflow-hidden h-full flex flex-col"
               >
                 {/* Project Image */}
                 <div className="relative overflow-hidden rounded-xl mb-6">
@@ -194,26 +297,14 @@ const Portfolio = () => {
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                     <div className="flex gap-4">
-                      {project.liveLink && (
+                      {project.liveLink && project.liveLink !== '#' && (
                         <a
                           href={project.liveLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-                          aria-label="View Live"
+                          className="px-4 py-2 bg-white text-gray-900 rounded-full font-semibold hover:scale-110 transition-transform text-sm"
                         >
-                          <ExternalLink size={20} className="text-gray-900" />
-                        </a>
-                      )}
-                      {project.githubLink && (
-                        <a
-                          href={project.githubLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-                          aria-label="View GitHub"
-                        >
-                          <Github size={20} className="text-gray-900" />
+                          Live Demo
                         </a>
                       )}
                     </div>
@@ -221,32 +312,36 @@ const Portfolio = () => {
                 </div>
 
                 {/* Project Info */}
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-2xl font-bold">{project.title}</h3>
-                    <span className="text-sm px-3 py-1 bg-gradient-primary text-white rounded-full">
-                      {project.category}
-                    </span>
-                  </div>
-                  <p className="text-sm text-primary-purple font-semibold mb-3">
-                    Client: {project.client}
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    {project.description}
-                  </p>
+                <div className="flex-grow flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-2xl font-bold">{project.title}</h3>
+                      <span className="text-sm px-3 py-1 bg-gradient-primary text-white rounded-full">
+                        {project.category}
+                      </span>
+                    </div>
+                    {project.client && (
+                      <p className="text-sm text-primary-purple font-semibold mb-3">
+                        Client: {project.client}
+                      </p>
+                    )}
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      {project.description}
+                    </p>
 
-                  {/* Tech Stack */}
-                  <div className="mb-4">
-                    <p className="text-sm font-semibold mb-2">Tech Stack:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.techStack.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="text-xs px-3 py-1 glass rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                    {/* Tech Stack */}
+                    <div className="mb-4">
+                      <p className="text-sm font-semibold mb-2">Tech Stack:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.techStack.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="text-xs px-3 py-1 glass rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
@@ -288,8 +383,5 @@ const Portfolio = () => {
     </div>
   )
 }
-
-// Add useState import
-import { useState } from 'react'
 
 export default Portfolio
