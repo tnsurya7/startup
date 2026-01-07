@@ -325,29 +325,26 @@ const Home = () => {
               ].map((client, i) => (
                 <div
                   key={i}
-                  className="glass-card p-6 text-center hover:scale-105 transition-transform"
+                  className="bg-white dark:bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform flex items-center justify-center h-32"
                 >
-                  <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                    <img 
-                      src={client.logo} 
-                      alt={client.name}
-                      className="max-w-full max-h-full object-contain"
-                      onError={(e) => {
-                        // Fallback to initials if image fails to load
-                        e.currentTarget.style.display = 'none';
-                        const fallbackElement = e.currentTarget.nextElementSibling as HTMLElement;
-                        if (fallbackElement) {
-                          fallbackElement.style.display = 'flex';
-                        }
-                      }}
-                    />
-                    <div 
-                      className="w-16 h-16 bg-gradient-primary rounded-full items-center justify-center text-white font-bold text-xl hidden"
-                    >
-                      {client.name.split(' ').map(word => word[0]).join('')}
-                    </div>
+                  <img 
+                    src={client.logo} 
+                    alt={client.name}
+                    className="w-full h-full object-contain scale-110"
+                    onError={(e) => {
+                      // Fallback to initials if image fails to load
+                      e.currentTarget.style.display = 'none';
+                      const fallbackElement = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallbackElement) {
+                        fallbackElement.style.display = 'flex';
+                      }
+                    }}
+                  />
+                  <div 
+                    className="w-16 h-16 bg-gradient-primary rounded-full items-center justify-center text-white font-bold text-xl hidden"
+                  >
+                    {client.name.split(' ').map(word => word[0]).join('')}
                   </div>
-                  <h3 className="font-semibold text-sm">{client.name}</h3>
                 </div>
               ))}
             </div>
