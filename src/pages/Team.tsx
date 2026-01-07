@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { Globe, Instagram, Linkedin, Phone, MessageCircle } from 'lucide-react'
 import ScrollReveal from '../components/ScrollReveal'
 
 const Team = () => {
