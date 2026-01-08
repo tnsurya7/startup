@@ -25,9 +25,9 @@ const Home = () => {
   ]
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 sm:pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="hero-section mobile-hero-spacing relative min-h-screen flex items-center justify-center overflow-hidden pt-8 sm:pt-0">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-gradient-dark">
           <div className="absolute inset-0 opacity-20">
