@@ -9,7 +9,7 @@ const Portfolio = () => {
       title: 'Dream Travels',
       description: 'Tour and travel booking website showcasing packages, destinations, and enquiry flow for customers.',
       image: '/Dream Travel project.png',
-      techStack: ['React.js', 'Node.js'],
+      techStack: ['Next.js 14', 'React 18', 'TypeScript', 'Tailwind CSS', 'Nodemailer', 'Zod', 'Vercel'],
       features: [
         'Tour package listings',
         'Enquiry & contact forms',
