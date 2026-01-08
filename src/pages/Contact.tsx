@@ -1,53 +1,21 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { 
   Mail, Phone, MapPin, Send, CheckCircle2, 
-  ArrowRight, ArrowLeft, MessageCircle, Calendar
+  MessageCircle, Calendar, ArrowRight
 } from 'lucide-react'
 import ScrollReveal from '../components/ScrollReveal'
 
 const Contact = () => {
-  const [step, setStep] = useState(1)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     whatsapp: '',
-    service: '',
-    budget: '',
-    timeline: '',
     message: ''
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const services = [
-    'Full-Stack Web Development',
-    'Micro-SaaS Development',
-    'AI Chatbot Development',
-    'ML & AI Projects',
-    'Video Editing',
-    'Content Writing',
-    'Digital Marketing',
-    'Product Photography',
-    'Other'
-  ]
-
-  const budgetRanges = [
-    'Under ₹50,000',
-    '₹50,000 - ₹1,00,000',
-    '₹1,00,000 - ₹2,50,000',
-    '₹2,50,000 - ₹5,00,000',
-    'Above ₹5,00,000'
-  ]
-
-  const timelines = [
-    'ASAP (1-2 weeks)',
-    '1 Month',
-    '2-3 Months',
-    '3-6 Months',
-    'Flexible'
-  ]
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -61,27 +29,9 @@ const Contact = () => {
     setSubmitted(true)
     
     // Send WhatsApp message
-    const message = `New Project Inquiry:\n\nName: ${formData.name}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\nService: ${formData.service}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\nMessage: ${formData.message}`
+    const message = `New Enquiry:\n\nName: ${formData.name}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\nMessage: ${formData.message}`
     const whatsappUrl = `https://wa.me/918825606988?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
-  }
-
-  const nextStep = () => {
-    if (step < 3) setStep(step + 1)
-  }
-
-  const prevStep = () => {
-    if (step > 1) setStep(step - 1)
-  }
-
-  const isStepValid = () => {
-    if (step === 1) {
-      return formData.name && formData.email && formData.whatsapp
-    }
-    if (step === 2) {
-      return formData.service && formData.budget && formData.timeline
-    }
-    return true
   }
 
   if (submitted) {
@@ -102,26 +52,22 @@ const Contact = () => {
           </motion.div>
           <h2 className="text-4xl font-bold mb-4">Thank You!</h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
-            We've received your inquiry and will get back to you within 24 hours. 
+            We've received your enquiry and will get back to you within 24 hours. 
             A WhatsApp chat has been opened for immediate assistance.
           </p>
           <button
             onClick={() => {
               setSubmitted(false)
-              setStep(1)
               setFormData({
                 name: '',
                 email: '',
                 whatsapp: '',
-                service: '',
-                budget: '',
-                timeline: '',
                 message: ''
               })
             }}
             className="btn-primary"
           >
-            Submit Another Inquiry
+            Submit Another Enquiry
           </button>
         </motion.div>
       </div>
@@ -150,217 +96,75 @@ const Contact = () => {
           {/* Contact Form */}
           <ScrollReveal>
             <div className="glass-card">
-              {/* Progress Bar */}
-              <div className="mb-8">
-                <div className="flex justify-between mb-2">
-                  {[1, 2, 3].map((s) => (
-                    <div
-                      key={s}
-                      className={`flex-1 h-2 rounded-full mx-1 transition-colors ${
-                        s <= step ? 'bg-gradient-primary' : 'bg-gray-200 dark:bg-gray-700'
-                      }`}
-                    />
-                  ))}
+              <h3 className="text-2xl font-bold mb-6">Send us an Enquiry</h3>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-semibold mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
+                    placeholder="Surya Kumar"
+                  />
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-                  Step {step} of 3
-                </p>
-              </div>
 
-              <form onSubmit={handleSubmit}>
-                <AnimatePresence mode="wait">
-                  {/* Step 1: Basic Info */}
-                  {step === 1 && (
-                    <motion.div
-                      key="step1"
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -50 }}
-                      className="space-y-6"
-                    >
-                      <h3 className="text-2xl font-bold mb-6">Basic Information</h3>
-                      
-                      <div>
-                        <label className="block text-sm font-semibold mb-2">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
-                          placeholder="Surya Kumar"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-semibold mb-2">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
-                          placeholder="webdeo7@gmail.com"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-semibold mb-2">
-                          WhatsApp Number *
-                        </label>
-                        <input
-                          type="tel"
-                          name="whatsapp"
-                          value={formData.whatsapp}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
-                          placeholder="+91 88256 06988"
-                        />
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Step 2: Project Details */}
-                  {step === 2 && (
-                    <motion.div
-                      key="step2"
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -50 }}
-                      className="space-y-6"
-                    >
-                      <h3 className="text-2xl font-bold mb-6">Project Details</h3>
-
-                      <div>
-                        <label className="block text-sm font-semibold mb-2">
-                          Service Required *
-                        </label>
-                        <select
-                          name="service"
-                          value={formData.service}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
-                        >
-                          <option value="">Select a service</option>
-                          {services.map((service) => (
-                            <option key={service} value={service}>
-                              {service}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-semibold mb-2">
-                          Budget Range *
-                        </label>
-                        <select
-                          name="budget"
-                          value={formData.budget}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
-                        >
-                          <option value="">Select budget range</option>
-                          {budgetRanges.map((budget) => (
-                            <option key={budget} value={budget}>
-                              {budget}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-semibold mb-2">
-                          Timeline *
-                        </label>
-                        <select
-                          name="timeline"
-                          value={formData.timeline}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
-                        >
-                          <option value="">Select timeline</option>
-                          {timelines.map((timeline) => (
-                            <option key={timeline} value={timeline}>
-                              {timeline}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Step 3: Additional Info */}
-                  {step === 3 && (
-                    <motion.div
-                      key="step3"
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -50 }}
-                      className="space-y-6"
-                    >
-                      <h3 className="text-2xl font-bold mb-6">Tell Us More</h3>
-
-                      <div>
-                        <label className="block text-sm font-semibold mb-2">
-                          Project Description
-                        </label>
-                        <textarea
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          rows={6}
-                          className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple resize-none"
-                          placeholder="Tell us about your project, goals, and any specific requirements..."
-                        />
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                {/* Navigation Buttons */}
-                <div className="flex gap-4 mt-8">
-                  {step > 1 && (
-                    <button
-                      type="button"
-                      onClick={prevStep}
-                      className="btn-secondary flex-1"
-                    >
-                      <ArrowLeft className="inline mr-2" size={20} />
-                      Previous
-                    </button>
-                  )}
-                  
-                  {step < 3 ? (
-                    <button
-                      type="button"
-                      onClick={nextStep}
-                      disabled={!isStepValid()}
-                      className="btn-primary flex-1 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      Next
-                      <ArrowRight className="inline ml-2" size={20} />
-                    </button>
-                  ) : (
-                    <button
-                      type="submit"
-                      className="btn-primary flex-1"
-                    >
-                      Submit
-                      <Send className="inline ml-2" size={20} />
-                    </button>
-                  )}
+                <div>
+                  <label className="block text-sm font-semibold mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
+                    placeholder="webdeo7@gmail.com"
+                  />
                 </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2">
+                    WhatsApp Number *
+                  </label>
+                  <input
+                    type="tel"
+                    name="whatsapp"
+                    value={formData.whatsapp}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple"
+                    placeholder="+91 88256 06988"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={6}
+                    className="w-full px-4 py-3 rounded-xl glass focus:outline-none focus:ring-2 focus:ring-primary-purple resize-none"
+                    placeholder="Tell us about your project, requirements, or any questions you have..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full btn-primary"
+                >
+                  Send Enquiry
+                  <Send className="inline ml-2" size={20} />
+                </button>
               </form>
             </div>
           </ScrollReveal>
@@ -398,7 +202,7 @@ const Contact = () => {
                     <div>
                       <p className="font-semibold">Phone</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        +91 88256 06988
+                        +91 88256 06988, +91 98946 73781
                       </p>
                     </div>
                   </a>
@@ -410,7 +214,7 @@ const Contact = () => {
                     <div>
                       <p className="font-semibold">Location</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Chennai, Tamil Nadu, India
+                        153/2, Anna Nagar East, Chennai - 600102
                       </p>
                     </div>
                   </div>

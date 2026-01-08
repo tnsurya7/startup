@@ -26,7 +26,7 @@ const Team = () => {
     },
     {
       name: 'Ujakar Gupta',
-      role: 'Video Editor & Content Creator',
+      role: 'Lead Video Editor & Content Creator',
       description: 'Manages video editing, reels, promotional creatives, and visual storytelling.',
       photo: '/ujakar gupta.png',
       link: null

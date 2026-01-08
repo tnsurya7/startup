@@ -69,7 +69,7 @@ const Home = () => {
                 </span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                Premium full-stack development, AI automation, and creative solutions that drive real business results
+                Premium full-stack development, AI automation and Digital Marketing that drive real business results
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact" className="btn-primary text-lg px-8 py-4">
@@ -91,7 +91,7 @@ const Home = () => {
               {[
                 { end: 100, suffix: '+', label: 'Projects Completed' },
                 { end: 50, suffix: '+', label: 'Happy Clients' },
-                { end: 50, suffix: '+', label: 'Team Members' },
+                { end: 23, suffix: '+', label: 'Team Members' },
                 { end: 99, suffix: '%', label: 'Client Satisfaction' },
               ].map((stat, i) => (
                 <div key={i} className="glass-card">
