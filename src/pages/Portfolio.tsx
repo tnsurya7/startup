@@ -22,7 +22,7 @@ const Portfolio = () => {
       category: 'Web Development'
     },
     {
-      title: 'MedFoxRCM – Healthcare Revenue Cycle Management',
+      title: 'MedFoxRCM',
       description: 'Healthcare RCM platform with service presentation and course registration system.',
       image: '/Medfoxrcm project.png',
       techStack: ['Next.js 14', 'React 18', 'TypeScript', 'Tailwind CSS', 'Nodemailer', 'Zod', 'Vercel'],
